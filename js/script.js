@@ -1,4 +1,4 @@
-function Book(title, author, pages_n, isReaded){
+function Book(title, author, pages_n, isReaded) {
     this.title = title;
     this.author = author;
     this.pages_n = pages_n;
@@ -7,12 +7,12 @@ function Book(title, author, pages_n, isReaded){
 
 const bookCards = document.querySelector(".cards");
 
-function addToLibrary(book){
+function addToLibrary(book) {
     let card = document.createElement('div');
     let readed;
     card.classList.add("card");
 
-    if (book.isReaded){
+    if (book.isReaded) {
         readed = "checked"
     }
 
@@ -36,12 +36,30 @@ function addToLibrary(book){
     card.children[3].children[1].addEventListener("click", () => card.remove())
 
     bookCards.appendChild(card);
-    
 }
 
+const newBookBtn = document.querySelector(".newBookBtn");
+const formOverlay = document.querySelector(".formOverlay");
+const bookForm = document.getElementById("form");
+const formInputs = document.querySelectorAll("input");
 
-const theHobbit = new Book('The Hobbit', 'J.R.R Tolkien', 295, false);
-addToLibrary(theHobbit);
+newBookBtn.addEventListener("click", () => {
+    formOverlay.classList.remove("hidden");
+    bookForm.reset();
+})
 
-const HarryPotter = new Book('Harry Potter', 'J.K Rolling', 356, true);
-addToLibrary(HarryPotter);
+bookForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    addToLibrary(new Book(formInputs[0].value, formInputs[1].value, formInputs[2].value, formInputs[3].checked))
+    formOverlay.classList.add("hidden")
+})
+
+formOverlay.addEventListener("click", (e) => {
+    if (e.target.classList.value === "formOverlay") {
+        formOverlay.classList.add("hidden")
+    }
+})
+
+addToLibrary(new Book('The Hobbit', 'J.R.R Tolkien', 295, false));
+addToLibrary(new Book('Harry Potter', 'J.K Rolling', 356, true));

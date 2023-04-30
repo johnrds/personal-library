@@ -28,7 +28,22 @@
                 href="https://www.theodinproject.com/about">The Odin Project</a></p>
     </footer>
 
-   
+    <div class="formOverlay hidden">
+
+        <form action="#" method="post" id="form">
+            <span>Add new Book</span><br>
+            <input type="text" id="title" placeholder="Title" required><br>
+            <input type="text" id="author" placeholder="Author" required><br>
+            <input type="number" id="pages" placeholder="Pages" min="0" required><br>
+            <label for="readed">Have you read it?</label>
+            <label class="switch">
+                <input type="checkbox" id="readed">
+                <span class="slider round"></span>
+            </label><br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
     <script src="./js/script.js"></script>
 </body>
 
