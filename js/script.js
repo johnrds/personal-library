@@ -61,5 +61,5 @@ formOverlay.addEventListener("click", (e) => {
     }
 })
 
-addToLibrary(new Book('The Hobbit', 'J.R.R Tolkien', 295, false));
+addToLibrary(new Book('The Hobbit', 'J.R.R Tolkien', 336, false));
 addToLibrary(new Book('Harry Potter', 'J.K Rolling', 356, true));
